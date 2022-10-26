@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!--========== BOX ICONS ==========-->
+	<link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+
+	<!--========== CSS ==========-->
+	<link rel="stylesheet" href="static/assets/css/styles.css">
+	<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js">
+
+	</script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	 crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	 crossorigin="anonymous">
+
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+	 crossorigin="anonymous">
+
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+	 crossorigin="anonymous">
+
+	</script>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet">
+
+	<title>COVID-19 Predictor</title>
+
+</head>
+
+<body onload="getData()">
+	<div class="bg-image"></div>
+
+	<a href="#" class="scrolltop" id="scroll-top">
+		<i class='bx bx-chevron-up scrolltop__icon'></i>
+        </a>
+        <header class="l-header" id="header">
+            <nav class="nav bd-container">
+                <a href="static/home.html" class="nav__logo">COVID-19</a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="home.html#home" class="nav__link active-link">Home</a></li>
+                        <li class="nav__item"><a href="static/home.html#about" class="nav__link">Symptoms</a></li>
+                        <li class="nav__item"><a href="static/home.html#services" class="nav__link">Precautions</a></li>
+                        <li class="nav__item"><a href="static/home.html#menu" class="nav__link">External Links</a></li>
+                        <li class="nav__item"><a href="static/home.html#contact" class="nav__link">Contact us</a></li>
+                         <li class="nav__item"><button type="button" class="nav_selected_url">COVID Predictor</button></li>
+
+
+                        
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+        <div>
+          <h1 style="margin:10px;"><a href="https://covid-19-predictor.lakshaykumar3.repl.co/static/home.html">Covid 19 Prediction Report</a></h1>
+          <h5 style="margin-top:-5px;color=#A9A9A9;">Computer Generated</h5>
+          <div class="container" id="printablearea">
+            <section style="margin-top:20px;" class="home">
+                <div class="shadow-none p-3 mb-5 bg-light rounded" style="background-color: #eee" id="report_headings">
+                  
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3>Report</h3>
+                            <lottie-player src="https://assets3.lottiefiles.com/private_files/lf30_S84njj.json" background="transparent"  speed="1"  style="width: 150px; height: 150px;" autoplay></lottie-player>
+                            
+                        </div>
+                        <div class="col-md-4">
+                            <div style="margin-top: 50px;">
+                                <strong>Name : </strong>{{name}}<br>
+                                <strong>Age :</strong>
+                                {{age}}<br>
+                                <strong>Gender :</strong>
+                                {{gender}}<br>
+                                <strong>Date :</strong>
+                                {{date33}}<br>
+                                <strong>Time : </strong>{{time33}}
+                               <br>
+                                
+                            </div>
+                            
+                            
+                        </div>
+                         <div class="col-md-4">
+                            <div style="margin-top: 30px;">
+                              <h2 align="right" class="text-danger">{{report}}</h2>
+                              
+                                <strong>COVID : </strong>
+                                {{prediction_text}}<br>
+                                 
+                                <strong>Prediction Basis : </strong> Observation on 5,434 people.<br>
+                                <strong>Prediction Accuracy : </strong> 96.09%<br>
+
+                                <a href="https://COVID-19-Predictor.lakshaykumar3.repl.co" type="button" class="btn btn-outline-link" align="right">Reload</a>
+                                
+                               
+                                
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-9">
+                            <strong class="text-danger"><h5 class="text-danger">Note :</h5></strong>
+                    <ul>
+                        <li>-This is not the official way of testing COVID-19. This will only predict based on your symptoms.</li>
+                        <li>-Even if you are negative, you must take all precautions and get the official test for COVID-19.</li>
+                        <li>-This report is valid only till 72 hours of the above mentioned time.</li>
+                        <li>-<strong class="text-danger">This just a symptom based report.</strong></li>
+                        <li>-Prediction is solely based on data provided by user which may be false.</li>
+                         <li>-Tested from <a href="#">https://covid-19-predictor.lakshaykumar3.repl.co/</a></li>
+                    </ul>
+                    <br>
+                    <strong>Suggested steps : </strong>
+                      <br>-{{steps1}}<br>-{{steps2}}<br>-{{steps3}}<br><br>
+                      
+
+                            
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-outline-warning text-center" 
+                            id="print_btn"
+                            onclick="printform()">Print Report</button>
+                            
+
+                            <div class="legends_box">
+                              <br>
+                            <br>
+                              <strong>References</strong><br>
+                              0 - Symptom Not present<br>1 - Symptom Present
+                              <br>
+                              <br>
+                              
+                              <div class="btn-group-vertical btn-group" id="imp_links">
+                                <b>Important Links :</b><br>
+                                  <a type="button" class="btn btn-outline-danger" href="https://www.google.com/maps?q=hospitals+near+me&um=1&ie=UTF-8&sa=X&ved=2ahUKEwiCn6bY7sHwAhVm4HMBHVn8BxIQ_AUoAXoECAIQAw" target="blank">Nearby Hospitals</a>
+                                  <a type="button" class="btn btn-outline-primary" href="https://www.tatahealth.com/online-doctor-consultation/general-physician" target="blank">Connect a doctor</a>
+                                  <a type="button" class="btn btn-outline-success" href="https://www.healthline.com/health/food-nutrition/foods-that-boost-the-immune-system" target="blank">Boost Immunity</a>
+                                  <a type="button" class="btn btn-outline-info" href="https://www.cowin.gov.in/home" target="blank">COVID vaccine</a><br><br>
+                              </div>
+                            </div>
+                            
+                        </div><br>
+
+                        <div class="container-fluid">
+
+  <table class="table table-bordered table-sm table-hover">
+    <thead>
+      <tr>
+        <th>Symptom</th>
+        <th>Status</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Breathing Problem</td>
+        <td>{{c1}}</td>
+        
+      </tr>
+      <tr>
+        <td>Fever</td>
+        <td>{{c2}}</td>
+        
+      </tr>
+       <tr>
+        <td>Dry cough</td>
+        <td>{{c3}}</td>
+        
+      </tr>
+       <tr>
+        <td>Sore Throat</td>
+        <td>{{c4}}</td>
+        
+      </tr>
+       <tr>
+        <td>Running Nose</td>
+        <td>{{c5}}</td>
+        
+      </tr>
+       <tr>
+        <td>Asthma</td>
+        <td>{{c6}}</td>
+        
+      </tr>
+       <tr>
+        <td>Chronic Lung Disease</td>
+        <td>{{c7}}</td>
+        
+      </tr>
+       <tr>
+        <td>Headache</td>
+        <td>{{c8}}</td>
+        
+      </tr>
+       <tr>
+        <td>Heart Disease</td>
+        <td>{{c9}}</td>
+        
+      </tr>
+       <tr>
+        <td>Diabetes</td>
+        <td>{{c10}}</td>
+        
+      </tr>
+       <tr>
+        <td>Hyper Tension</td>
+        <td>{{c11}}</td>
+        
+      </tr>
+       <tr>
+        <td>Fatigue</td>
+        <td>{{c12}}</td>
+        
+      </tr>
+       <tr>
+        <td>Gastrointestinal</td>
+        <td>{{c13}}</td>
+        
+      </tr>
+       <tr>
+        <td>Abroad Travel</td>
+        <td>{{c14}}</td>
+        
+      </tr>
+       <tr>
+        <td>Suspected contact with COVID patient</td>
+        <td>{{c15}}</td>
+        
+      </tr>
+       <tr>
+        <td>Attended Large Gathering</td>
+        <td>{{c16}}</td>
+        
+      </tr>
+       <tr>
+        <td>Visited Public Exposed place</td>
+        <td>{{c17}}</td>
+        
+      </tr>
+       <tr>
+        <td>Family worked in public exposed area</td>
+        <td>{{c18}}</td>
+        
+      </tr>
+       <tr>
+        <td>Always uses maks</td>
+        <td>{{c19}}</td>
+        
+      </tr>
+       <tr>
+        <td>Sanitization from market</td>
+        <td>{{c20}}</td>
+        
+      </tr>
+     
+    </tbody>
+  </table><br>
+  Therefore I {{name}} agree that i am genrating this report based on the data asked and is correct to the best of my knowledge.
+  
+</div>
+                    </div>
+                    
+                </div>
+
+                
+            </section>
+            <section class="home" id="home" style="margin-top:0px;" >
+                <div class="container" id="symptom_details" style="background-image: url('https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dmlydXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80');background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;" >
+                    <div class="row rounded mb-4" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: rgb(46 46 46 / 63%) /* #000000 background with 30% opacity */;">
+                        <div class="col-12 rounded bg-success">
+
+                           <h2 class="text-center p-2 text-white">Symptom Details</h2> 
+                        </div>
+                        <div class="col-12">
+
+                            <div class="form-contents">
+                    <form method="post" action="{{ url_for('predict')}}">
+                      <div class="row">
+                            <div class="col-md-4 p-3">
+                            <label>Name</label>
+                            <input type="text" class="form-control" id="usr" required="" placeholder="Your name" name="usr">
+                            
+                        </div>
+                         <div class="col-md-4 p-3">
+                            <label>Age</label>
+                             <input type="number" class="form-control" id="agd" required="" placeholder="Age" name="agd" min="1">
+                            
+                        </div>
+                         <div class="col-md-4 p-3">
+                            <label>Gender</label>
+                            <select  class="form-control" id="g1" name="g4" required>
+                            <option value="">--Select--</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="Rather_not_say">Rather not say</option>
+
+                    </select>
+                            
+                        </div>
+                        </div>
+                        <hr>
+                    <div class="row text-center">
+
+                    <div class="col-md-3 p-3">
+                    <div class="form-group">
+                    <label>Breathing Problem</label><br>
+                    <select  class="form-control" id="c1" name="c1" required>
+                    <option value="">--Select--</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+
+                    </select>
+
+                    </div>              
+                    </div>
+                    <div class="col-md-3 p-3">
+                    <div class="form-group">
+                    <label>Fever</label><br>
+                    <select  class="form-control" id="c2" name="c2" required>
+                    <option value="">--Select--</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+
+                    </select>
+
+                    </div>              
+                    </div>
+                    <div class="col-md-3 p-3">
+                    <div class="form-group">
+                    <label>Dry Cough</label><br>
+                    <select  class="form-control" id="c3" name="c3" required>
+                    <option value="">--Select--</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+
+                    </select>
+
+                    </div>              
+                    </div>
+                    <div class="col-md-3 p-3">
+                    <div class="form-group">
+                    <label>Sore Throat</label><br>
+                    <select  class="form-control" id="c4" name="c4" required>
+                    <option value="">--Select--</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+
+                    </select>
+
+                    </div>              
+                    </div>
+
+
+                    </div>
+                    <div class="row text-center">
+                    <div class="col-md-3 p-3">
+                    <div class="form-group">
+                    <label>Running Nose</label><br>
+                    <select  class="form-control" id="c5" name="c5" required>
+                    <option value="">--Select--</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+
+                    </select>
+
+                    </div>              
+                    </div>
+                    <div class="col-md-3 p-3">
+                    <div class="form-group">
+                    <label>Asthma</label><br>
+                    <select  class="form-control" id="c6" name="c6" required>
+                    <option value="">--Select--</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+
+                    </select>
+
+                    </div>              
+                    </div>
+                    <div class="col-md-3 p-3">
+                    <div class="form-group">
+                    <label>Chronic Lung Disease</label><br>
+                    <select  class="form-control" id="c7" name="c7"required>
+                    <option value="">--Select--</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+
+                    </select>
+
+                    </div>              
+                    </div>
+                    <div class="col-md-3 p-3">
+                    <div class="form-group">
+                    <label>Headache</label><br>
+                    <select  class="form-control" id="c8" name="c8" required>
+                    <option value="">--Select--</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+
+                    </select>
+
+                    </div>              
+                    </div>
+
+
+                    </div>
+                    <div class="row text-center">
+                    <div class="col-md-3 p-3">
+                    <div class="form-group">
+                    <label>Heart Disease</label><br>
+                    <select  class="form-control" id="c9" name="c9" required>
+                    <option value="">--Select--</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+
+                    </select>
+
+                    </div>              
+                    </div>
+                    <div class="col-md-3 p-3">
+                    <div class="form-group">
+                    <label>Diabetes</label><br>
+                    <select  class="form-control" id="c10" name="c10" required>
+                    <option value="">--Select--</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+
+                    </select>
+
+                    </div>              
+                    </div>
+                    <div class="col-md-3 p-3">
+                    <div class="form-group">
+                    <label>Hypertension</label><br>
+                    <select  class="form-control" id="c11" name="c11" required>
+                    <option value="">--Select--</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+
+                    </select>
+
+                    </div>              
+                    </div>
+                    <div class="col-md-3 p-3">
+                    <div class="form-group">
+                    <label>Fatigue</label><br>
+                    <select  class="form-control" id="c12" name="c12" required>
+                    <option value="">--Select--</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+
+                    </select>
+
+                    </div>              
+                    </div>
+
+
+                    </div>
+                    <div class="row text-center">
+                    <div class="col-md-3 p-3">
+                    <div class="form-group">
+                    <label>Gastrointestinal</label><br>
+                    <select  class="form-control" id="c13" name="c13" required>
+                    <option value="">--Select--</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+
+                    </select>
+
+                    </div>              
+                    </div>
+                    <div class="col-md-3 p-3">
+                    <div class="form-group">
+                    <label>Abroad Travel <small>in last 14 days</small></label><br>
+                    <select  class="form-control" id="c14" name="c14" required>
+                    <option value="">--Select--</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+
+                    </select>
+
+                    </div>              
+                    </div>
+                    <div class="col-md-3 p-3">
+                    <div class="form-group">
+                    <label>Suspect contact with COVID-19 patient</label><br>
+                    <select  class="form-control" id="c15" name="c15" required>
+                    <option value="">--Select--</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+
+                    </select>
+
+                    </div>              
+                    </div>
+                    <div class="col-md-3 p-3">
+                    <div class="form-group">
+                    <label>Attended Large Gathering</label><br>
+                    <select  class="form-control" id="c16" name="c16" required>
+                    <option value="">--Select--</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+
+                    </select>
+
+                    </div>              
+                    </div>
+                    <div class="col-md-3 p-3">
+                    <div class="form-group">
+                    <label>Visited Public Exposed Places</label><br>
+                    <select  class="form-control" id="c17" name="c17" required>
+                    <option value="">--Select--</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+
+                    </select>
+
+                    </div>              
+                    </div>
+                    <div class="col-md-3 p-3">
+                    <div class="form-group">
+                    <label>Family working in Public Exposed Places</label><br>
+                    <select  class="form-control" id="c18" name="c18" required>
+                    <option value="">--Select--</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+
+                    </select>
+
+                    </div>              
+                    </div>
+                    <div class="col-md-3 p-3">
+                    <div class="form-group">
+                    <label>Always Wearing Masks</label><br>
+                    <select  class="form-control" id="c19" name="c19" required>
+                    <option value="">--Select--</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+
+                    </select>
+
+                    </div>              
+                    </div>
+                    <div class="col-md-3 p-3">
+                    <div class="form-group">
+                    <label>Sanitization from Market</label><br>
+                    <select  class="form-control" id="c20" name="c20" required>
+                    <option value="">--Select--</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+
+                    </select>
+
+                    </div>              
+                    </div>
+                                    
+                    </div>
+
+
+                    <div class="col-md-3 text-center mx-auto">
+                    <button type="submit" class="btn  btn-block p-2 btn-lg" id="predict_btn" style="border-radius: 43px;
+                    margin-bottom:50px;
+    background: linear-gradient(145deg, #4caf50, #bfffc2);
+    box-shadow: 37px 37px 74px #5a5a5a, -37px -37px 74px #ffffff;"><strong>Predict</strong></button>
+                    </div>
+                    <h5></h5>
+
+                    
+
+                  
+
+                    </div>
+
+                    </div>
+                    </form>
+</div>
+                        </div>
+                    </div>
+                </div>
+                    
+                    
+               
+                        
+            </section>
+
+
+          </div>
+          
+            
+            <!--========== HOME ==========-->
+            
+
+
+</body>
+
+<style type="text/css" media="screen">
+
+    label{
+        font-family: 'Montserrat';
+        color:#fff;
+    }
+    h2{
+        font-family: 'Montserrat';
+
+    }
+    h5{
+        color: #fff;
+
+        font-family: 'Montserrat';
+    }
+    .form-control{
+          border-radius: 50px;
+    box-shadow: 20px 20px 60px #bebebe00, -20px -20px 60px #ffffff;
+    background: rgb(236 223 223 / 35%) /* #00000000 background with 30% opacity */;
+    color: #fff
+
+            }
+
+    option{
+         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(0 0 0 / 0%);
+            background: rgb(236 223 223 / 35%) /* #00000000 background with 30% opacity */;
+
+    }
+    .bg-image {
+  /* The image used */
+  background-image: url("https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dmlydXN8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80");
+  
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  
+  /* Full height */
+  height: 100%; 
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+
+<script src="static/assets/js/main.js"></script>
+ 
+<script>
+  function printform(){
+    
+          var div = document.getElementById("header");
+          var btn = document.getElementById("predict_btn");
+          var btn2 = document.getElementById("print_btn");
+          div.style.display = "none";
+          btn.style.display = "none"; 
+          btn2.style.display = "none"; 
+          document.getElementById("imp_links").style.display = "none"; 
+          
+          
+          window.print(); 
+         // window.location='https://covid-19-predictor.lakshaykumar3.repl.co/';
+
+  }
+
+  function getData(){
+    var name ='{{naame}}';
+    var age ='{{agge}}';
+    var gender='{{gender2}}'
+    document.getElementById("usr").value = name;
+    document.getElementById("agd").value = age;
+    document.getElementById("g1").value = gender;
+
+    if(name==""){
+      document.getElementById("report_headings").style.display = "none";
+      document.getElementById("symptom_details").style.display = "block";
+
+    }
+    else{
+      document.getElementById("report_headings").style.display = "block";
+      document.getElementById("symptom_details").style.display = "none";
+
+    }
+    
+    
+    
+
+  }
+  
+  
+  </script>
+
+</html>
